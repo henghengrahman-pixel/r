@@ -1,1 +1,53 @@
-<header class="top"><div class="ticker"><span><%= settings.tickerText %></span></div><nav class="nav"><a class="brand" href="/"><img src="<%= settings.logoUrl %>" alt="<%= settings.siteName %>"><strong><%= settings.siteName %></strong></a><div class="navlinks"><a href="/search">Search</a><a href="/berita">Berita</a><a href="/apk">APK</a><a href="<%= settings.livechatUrl %>">Bantuan</a></div></nav></header>
+<header class="top">
+
+  <div class="ticker">
+
+    <span>
+      <%= settings.tickerText %>
+    </span>
+
+  </div>
+
+  <nav class="nav">
+
+    <a
+      class="brand"
+      href="/"
+      aria-label="<%= settings.siteName %>"
+    >
+
+      <img
+        src="<%= settings.logoUrl %>"
+        alt="<%= settings.siteName %>"
+        loading="eager"
+      >
+
+      <strong>
+        <%= settings.siteName %>
+      </strong>
+
+    </a>
+
+    <div class="navlinks">
+
+      <a href="/search">
+        Pencarian
+      </a>
+
+      <a href="/berita">
+        Berita Bola
+      </a>
+
+      <a href="/apk">
+        Download APK
+      </a>
+
+      <a href="<%= settings.livechatUrl %>">
+        Bantuan
+      </a>
+
+    </div>
+
+  </nav>
+
+</header>
