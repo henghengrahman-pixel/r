@@ -1,1 +1,94 @@
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><title><%= title %></title><meta name="description" content="<%= description %>"><link rel="canonical" href="<%= canonical %>"><meta name="robots" content="index,follow,max-image-preview:large"><meta property="og:title" content="<%= title %>"><meta property="og:description" content="<%= description %>"><meta property="og:type" content="<%= type || 'website' %>"><meta property="og:url" content="<%= canonical %>"><meta property="og:image" content="<%= image %>"><meta name="twitter:card" content="summary_large_image"><link rel="icon" href="<%= settings.faviconUrl || '/images/favicon.svg' %>"><link rel="stylesheet" href="/css/style.css"><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"<%= settings.siteName %>","url":"<%= baseUrl %>","potentialAction":{"@type":"SearchAction","target":"<%= baseUrl %>/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<meta charset="utf-8">
+
+<meta
+  name="viewport"
+  content="width=device-width,initial-scale=1,maximum-scale=1"
+>
+
+<title>
+  <%= title %>
+</title>
+
+<meta
+  name="description"
+  content="<%= description %>"
+>
+
+<meta
+  name="keywords"
+  content="<%= keywords || settings.siteKeywords || 'portal berita bola, live score, aplikasi mobile, update terbaru, jadwal pertandingan' %>"
+>
+
+<meta
+  name="robots"
+  content="index,follow,max-image-preview:large"
+>
+
+<link
+  rel="canonical"
+  href="<%= canonical %>"
+>
+
+<meta
+  property="og:type"
+  content="<%= type || 'website' %>"
+>
+
+<meta
+  property="og:title"
+  content="<%= title %>"
+>
+
+<meta
+  property="og:description"
+  content="<%= description %>"
+>
+
+<meta
+  property="og:url"
+  content="<%= canonical %>"
+>
+
+<meta
+  property="og:image"
+  content="<%= image %>"
+>
+
+<meta
+  property="og:site_name"
+  content="<%= settings.siteName %>"
+>
+
+<meta
+  name="twitter:card"
+  content="summary_large_image"
+>
+
+<meta
+  name="theme-color"
+  content="#050505"
+>
+
+<link
+  rel="icon"
+  href="<%= settings.faviconUrl || '/images/favicon.svg' %>"
+>
+
+<link
+  rel="stylesheet"
+  href="/css/style.css"
+>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebSite",
+  "name":"<%= settings.siteName %>",
+  "url":"<%= baseUrl %>",
+  "potentialAction":{
+    "@type":"SearchAction",
+    "target":"<%= baseUrl %>/search?q={search_term_string}",
+    "query-input":"required name=search_term_string"
+  }
+}
+</script>
