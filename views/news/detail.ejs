@@ -1,1 +1,79 @@
-<article class="article"><span class="cat"><%= article.category %></span><h1><%= article.title %></h1><div class="meta">Oleh <%= article.author %> • <%= new Date(article.publishedAt).toLocaleDateString('id-ID',{day:'2-digit',month:'long',year:'numeric'}) %></div><img class="cover" src="<%= article.coverUrl %>" alt="<%= article.title %>"><div class="content"><%- article.content %></div></article><section class="section narrow"><h2>Artikel Terkait</h2><div class="related"><% related.forEach(r=>{ %><a href="/berita/<%= r.slug %>"><%= r.title %></a><% }) %></div></section>
+<article class="article">
+
+  <span class="cat">
+    <%= article.category %>
+  </span>
+
+  <h1>
+    <%= article.title %>
+  </h1>
+
+  <div class="meta">
+
+    <span>
+      Oleh <%= article.author %>
+    </span>
+
+    <span>•</span>
+
+    <span>
+      <%= new Date(article.publishedAt).toLocaleDateString(
+        'id-ID',
+        {
+          day:'2-digit',
+          month:'long',
+          year:'numeric'
+        }
+      ) %>
+    </span>
+
+  </div>
+
+  <img
+    class="cover"
+    src="<%= article.coverUrl %>"
+    alt="<%= article.title %>"
+    loading="lazy"
+  >
+
+  <div class="content">
+
+    <p class="lead">
+      Ikuti informasi terbaru seputar pertandingan, jadwal, transfer pemain, statistik, dan berbagai update olahraga pilihan yang disajikan lebih ringkas, nyaman dibaca, dan mudah diakses kapan saja.
+    </p>
+
+    <%- article.content %>
+
+  </div>
+
+</article>
+
+<section class="section narrow">
+
+  <div class="section-head">
+
+    <span>REKOMENDASI</span>
+
+    <h2>
+      Artikel dan Update Terkait
+    </h2>
+
+  </div>
+
+  <div class="related">
+
+    <% related.forEach(r=>{ %>
+
+      <a href="/berita/<%= r.slug %>">
+
+        <span>
+          <%= r.title %>
+        </span>
+
+      </a>
+
+    <% }) %>
+
+  </div>
+
+</section>
