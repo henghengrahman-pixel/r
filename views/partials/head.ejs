@@ -16,7 +16,9 @@
 
 <meta
   name="keywords"
-  content="<%= keywords || settings.siteKeywords || 'portal berita bola, live score, aplikasi mobile, update terbaru, jadwal pertandingan' %>"
+  content="<%= typeof keywords !== 'undefined'
+    ? keywords
+    : (settings.siteKeywords || 'portal berita bola, live score, aplikasi mobile, update terbaru, jadwal pertandingan') %>"
 >
 
 <meta
@@ -67,6 +69,11 @@
 <meta
   name="theme-color"
   content="#050505"
+>
+
+<meta
+  name="author"
+  content="<%= settings.siteName %>"
 >
 
 <link
