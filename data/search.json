@@ -1,0 +1,43 @@
+[
+  {
+    "id": "s-001",
+    "title": "OMTOGEL Portal Resmi",
+    "url": "/",
+    "type": "Brand",
+    "description": "Halaman utama untuk mencari informasi brand, berita, aplikasi, dan update terbaru.",
+    "keywords": [
+      "omtogel",
+      "portal",
+      "resmi",
+      "home"
+    ],
+    "priority": 10
+  },
+  {
+    "id": "s-002",
+    "title": "Download Aplikasi OMTOGEL",
+    "url": "/apk",
+    "type": "Aplikasi",
+    "description": "Informasi versi aplikasi, panduan install, dan pembaruan terbaru.",
+    "keywords": [
+      "apk",
+      "android",
+      "aplikasi",
+      "download omtogel"
+    ],
+    "priority": 9
+  },
+  {
+    "id": "s-003",
+    "title": "Berita Bola Terbaru",
+    "url": "/berita",
+    "type": "Media",
+    "description": "Kumpulan artikel sepak bola, prediksi pertandingan, dan jadwal pilihan.",
+    "keywords": [
+      "berita bola",
+      "prediksi bola",
+      "jadwal bola"
+    ],
+    "priority": 8
+  }
+]

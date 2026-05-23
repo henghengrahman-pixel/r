@@ -1,0 +1,19 @@
+{
+  "siteName": "OMTOGEL",
+  "siteTagline": "Portal Informasi, Aplikasi, dan Update Brand",
+  "siteDescription": "Pusat informasi resmi dengan berita bola, jadwal pertandingan, pembaruan aplikasi, dan pencarian cepat.",
+  "baseUrl": "",
+  "logoUrl": "/images/logo.svg",
+  "faviconUrl": "/images/favicon.svg",
+  "heroTitle": "OMTOGEL Portal",
+  "heroSubtitle": "Cari update, berita bola, prediksi pertandingan, panduan aplikasi, dan informasi brand dalam satu halaman yang rapi.",
+  "adminPath": "/pinktiger8008",
+  "loginUrl": "#",
+  "daftarUrl": "#",
+  "livechatUrl": "#",
+  "whatsappUrl": "#",
+  "apkUrl": "/apk",
+  "tickerText": "Update informasi terbaru tersedia setiap hari melalui portal resmi.",
+  "footerText": "© OMTOGEL. Semua informasi disusun untuk kemudahan pengguna.",
+  "theme": "dark"
+}

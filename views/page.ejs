@@ -1,0 +1,1 @@
+<section class="article"><span class="cat">HALAMAN</span><h1><%= page.title %></h1><p class="lead"><%= page.description %></p><div class="content"><p><%= page.body %></p></div><form class="searchbox" action="/search" method="get"><input name="q" value="<%= (page.keywords||[])[0] || '' %>"><button>Cari</button></form></section>

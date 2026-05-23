@@ -1,0 +1,36 @@
+[
+  {
+    "id": "art-001",
+    "title": "Panduan Menggunakan Portal OMTOGEL Dengan Lebih Mudah",
+    "slug": "panduan-menggunakan-portal-omtogel",
+    "category": "Panduan",
+    "author": "Redaksi",
+    "excerpt": "Ringkasan fitur utama portal, mulai dari pencarian cepat, berita bola, update aplikasi, hingga halaman bantuan.",
+    "content": "<p>Portal ini dibuat untuk membantu pengguna menemukan informasi brand, update aplikasi, berita bola, dan halaman penting secara cepat.</p><p>Gunakan kolom pencarian untuk menemukan panduan, jadwal, artikel, atau informasi aplikasi yang tersedia.</p>",
+    "coverUrl": "/images/default-cover.svg",
+    "publishedAt": "2026-05-24T00:00:00.000Z",
+    "status": "published",
+    "tags": [
+      "omtogel",
+      "portal",
+      "panduan"
+    ]
+  },
+  {
+    "id": "art-002",
+    "title": "Update Jadwal Bola dan Prediksi Pertandingan Pilihan",
+    "slug": "update-jadwal-bola-dan-prediksi-pertandingan-pilihan",
+    "category": "Berita Bola",
+    "author": "Redaksi Bola",
+    "excerpt": "Pantau jadwal pertandingan, ringkasan performa tim, dan catatan prediksi yang disusun dengan tampilan ringkas.",
+    "content": "<p>Halaman berita bola menampilkan ringkasan pertandingan pilihan, jadwal penting, dan update informasi sepak bola yang mudah dibaca di perangkat mobile.</p>",
+    "coverUrl": "/images/default-cover.svg",
+    "publishedAt": "2026-05-24T00:00:00.000Z",
+    "status": "published",
+    "tags": [
+      "berita bola",
+      "jadwal bola",
+      "prediksi"
+    ]
+  }
+]
