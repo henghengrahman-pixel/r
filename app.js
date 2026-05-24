@@ -9,16 +9,27 @@ const helmet = require('helmet');
 const compression = require('compression');
 const flash = require('connect-flash');
 
-const { ensureDataFiles } = require('./helpers/json-db');
-const { getSettings } = require('./helpers/settings');
+const {
+  ensureDataFiles
+} = require('./helpers/json-db');
+
+const {
+  getSettings
+} = require('./helpers/settings');
 
 ensureDataFiles();
 
 const app = express();
 
-const PORT = process.env.PORT || 8080;
+const PORT =
+  process.env.PORT || 8080;
 
 app.disable('x-powered-by');
+
+app.set(
+  'trust proxy',
+  1
+);
 
 app.set(
   'views',
@@ -39,8 +50,8 @@ app.set(
 
 app.use(
   helmet({
-    contentSecurityPolicy: false,
-    crossOriginEmbedderPolicy: false
+    contentSecurityPolicy:false,
+    crossOriginEmbedderPolicy:false
   })
 );
 
@@ -48,14 +59,14 @@ app.use(compression());
 
 app.use(
   express.urlencoded({
-    extended: true,
-    limit: '10mb'
+    extended:true,
+    limit:'10mb'
   })
 );
 
 app.use(
   express.json({
-    limit: '10mb'
+    limit:'10mb'
   })
 );
 
@@ -67,47 +78,58 @@ app.use(
   express.static(
     path.join(__dirname, 'public'),
     {
-      maxAge: '7d',
-      etag: true
+      maxAge:'7d',
+      etag:true
     }
   )
 );
 
 app.use(
   session({
-    name: 'omto.sid',
+
+    name:'omto.sid',
+
     secret:
       process.env.SESSION_SECRET ||
-      'change-this-secret-on-railway',
+      'omtogel-secret-key',
 
-    resave: false,
+    resave:false,
 
-    saveUninitialized: false,
+    saveUninitialized:false,
 
-    cookie: {
-      httpOnly: true,
-      sameSite: 'lax',
-      secure: process.env.NODE_ENV === 'production',
+    cookie:{
+
+      httpOnly:true,
+
+      sameSite:'lax',
+
+      secure:false,
+
       maxAge:
         1000 * 60 * 60 * 8
+
     }
+
   })
 );
 
 app.use(flash());
 
-app.use((req, res, next) => {
+app.use((req,res,next)=>{
 
-  const settings = getSettings();
+  const settings =
+    getSettings();
 
   const baseUrl =
     process.env.BASE_URL ||
     settings.baseUrl ||
     `${req.protocol}://${req.get('host')}`;
 
-  res.locals.settings = settings;
+  res.locals.settings =
+    settings;
 
-  res.locals.currentPath = req.path;
+  res.locals.currentPath =
+    req.path;
 
   res.locals.success =
     req.flash('success');
@@ -116,7 +138,8 @@ app.use((req, res, next) => {
     req.flash('error');
 
   res.locals.baseUrl =
-    baseUrl.replace(/\/+$/, '');
+    String(baseUrl)
+      .replace(/\/+$/,'');
 
   res.locals.adminPath =
     settings.adminPath ||
@@ -156,11 +179,12 @@ app.use(
   require('./routes/admin')
 );
 
-app.use((req, res) => {
+app.use((req,res)=>{
 
   res.status(404).render(
     '404',
     {
+
       title:
         'Halaman Tidak Ditemukan',
 
@@ -171,19 +195,24 @@ app.use((req, res) => {
         `${res.locals.baseUrl}${req.originalUrl}`,
 
       keywords:
-        'halaman tidak ditemukan'
+        'halaman tidak ditemukan',
+
+      type:
+        'website'
+
     }
   );
 
 });
 
-app.use((err, req, res, next) => {
+app.use((err,req,res,next)=>{
 
   console.error(err);
 
   res.status(500).render(
     '500',
     {
+
       title:
         'Terjadi Kendala Sistem',
 
@@ -194,7 +223,11 @@ app.use((err, req, res, next) => {
         `${res.locals.baseUrl}${req.originalUrl}`,
 
       keywords:
-        'server error'
+        'server error',
+
+      type:
+        'website'
+
     }
   );
 
@@ -202,7 +235,7 @@ app.use((err, req, res, next) => {
 
 app.listen(
   PORT,
-  () => {
+  ()=>{
 
     console.log(
       `OMTO PLATFORM RUNNING PORT ${PORT}`
