@@ -6,19 +6,23 @@
 >
 
 <title>
-  <%= title %>
+  <%= typeof title !== 'undefined'
+    ? title
+    : settings.siteName %>
 </title>
 
 <meta
   name="description"
-  content="<%= description %>"
+  content="<%= typeof description !== 'undefined'
+    ? description
+    : settings.siteDescription %>"
 >
 
 <meta
   name="keywords"
   content="<%= typeof keywords !== 'undefined'
     ? keywords
-    : (settings.siteKeywords || 'portal berita bola, live score, aplikasi mobile, update terbaru, jadwal pertandingan') %>"
+    : (settings.siteKeywords || '') %>"
 >
 
 <meta
@@ -28,32 +32,44 @@
 
 <link
   rel="canonical"
-  href="<%= canonical %>"
+  href="<%= typeof canonical !== 'undefined'
+    ? canonical
+    : baseUrl %>"
 >
 
 <meta
   property="og:type"
-  content="<%= type || 'website' %>"
+  content="<%= typeof type !== 'undefined'
+    ? type
+    : 'website' %>"
 >
 
 <meta
   property="og:title"
-  content="<%= title %>"
+  content="<%= typeof title !== 'undefined'
+    ? title
+    : settings.siteName %>"
 >
 
 <meta
   property="og:description"
-  content="<%= description %>"
+  content="<%= typeof description !== 'undefined'
+    ? description
+    : settings.siteDescription %>"
 >
 
 <meta
   property="og:url"
-  content="<%= canonical %>"
+  content="<%= typeof canonical !== 'undefined'
+    ? canonical
+    : baseUrl %>"
 >
 
 <meta
   property="og:image"
-  content="<%= image %>"
+  content="<%= typeof image !== 'undefined'
+    ? image
+    : settings.logoUrl %>"
 >
 
 <meta
