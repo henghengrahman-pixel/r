@@ -1,1 +1,255 @@
-<div class="head"><div><span>WEBSITE</span><h1>Pengaturan Website</h1></div></div><form class="panel form" method="post"><label>Site Name<input name="siteName" value="<%= settings.siteName %>"></label><label>Tagline<input name="siteTagline" value="<%= settings.siteTagline %>"></label><label>Description<textarea name="siteDescription"><%= settings.siteDescription %></textarea></label><label>Base URL<input name="baseUrl" value="<%= settings.baseUrl || '' %>" placeholder="https://domain.com"></label><label>Logo URL<input name="logoUrl" value="<%= settings.logoUrl %>"></label><label>Favicon URL<input name="faviconUrl" value="<%= settings.faviconUrl %>"></label><label>Hero Title<input name="heroTitle" value="<%= settings.heroTitle %>"></label><label>Hero Subtitle<textarea name="heroSubtitle"><%= settings.heroSubtitle %></textarea></label><label>Admin Path<input name="adminPath" value="<%= settings.adminPath %>"></label><label>Login URL<input name="loginUrl" value="<%= settings.loginUrl %>"></label><label>Daftar URL<input name="daftarUrl" value="<%= settings.daftarUrl %>"></label><label>Livechat URL<input name="livechatUrl" value="<%= settings.livechatUrl %>"></label><label>Whatsapp URL<input name="whatsappUrl" value="<%= settings.whatsappUrl %>"></label><label>Ticker Text<input name="tickerText" value="<%= settings.tickerText %>"></label><label>Footer Text<textarea name="footerText"><%= settings.footerText %></textarea></label><button>Simpan Pengaturan</button></form>
+<div class="head">
+
+  <div>
+
+    <span>
+      WEBSITE
+    </span>
+
+    <h1>
+      Pengaturan Website dan Branding Portal
+    </h1>
+
+    <p>
+      Atur identitas website, SEO dasar, tampilan homepage, link penting, dan berbagai kebutuhan portal langsung melalui halaman admin.
+    </p>
+
+  </div>
+
+</div>
+
+<form
+  class="panel form"
+  method="post"
+>
+
+  <div class="form-grid">
+
+    <label>
+
+      <span>
+        Site Name
+      </span>
+
+      <input
+        name="siteName"
+        value="<%= settings.siteName %>"
+        placeholder="Nama website"
+      >
+
+    </label>
+
+    <label>
+
+      <span>
+        Tagline
+      </span>
+
+      <input
+        name="siteTagline"
+        value="<%= settings.siteTagline %>"
+        placeholder="Tagline website"
+      >
+
+    </label>
+
+  </div>
+
+  <label>
+
+    <span>
+      Description
+    </span>
+
+    <textarea
+      name="siteDescription"
+      placeholder="Deskripsi website"
+    ><%= settings.siteDescription %></textarea>
+
+  </label>
+
+  <label>
+
+    <span>
+      Base URL
+    </span>
+
+    <input
+      name="baseUrl"
+      value="<%= settings.baseUrl || '' %>"
+      placeholder="https://domain.com"
+    >
+
+  </label>
+
+  <div class="form-grid">
+
+    <label>
+
+      <span>
+        Logo URL
+      </span>
+
+      <input
+        name="logoUrl"
+        value="<%= settings.logoUrl %>"
+        placeholder="https://..."
+      >
+
+    </label>
+
+    <label>
+
+      <span>
+        Favicon URL
+      </span>
+
+      <input
+        name="faviconUrl"
+        value="<%= settings.faviconUrl %>"
+        placeholder="https://..."
+      >
+
+    </label>
+
+  </div>
+
+  <label>
+
+    <span>
+      Hero Title
+    </span>
+
+    <input
+      name="heroTitle"
+      value="<%= settings.heroTitle %>"
+      placeholder="Judul utama homepage"
+    >
+
+  </label>
+
+  <label>
+
+    <span>
+      Hero Subtitle
+    </span>
+
+    <textarea
+      name="heroSubtitle"
+      placeholder="Subtitle homepage"
+    ><%= settings.heroSubtitle %></textarea>
+
+  </label>
+
+  <div class="form-grid">
+
+    <label>
+
+      <span>
+        Admin Path
+      </span>
+
+      <input
+        name="adminPath"
+        value="<%= settings.adminPath %>"
+        placeholder="/pinktiger8008"
+      >
+
+    </label>
+
+    <label>
+
+      <span>
+        Login URL
+      </span>
+
+      <input
+        name="loginUrl"
+        value="<%= settings.loginUrl %>"
+        placeholder="https://..."
+      >
+
+    </label>
+
+  </div>
+
+  <div class="form-grid">
+
+    <label>
+
+      <span>
+        Daftar URL
+      </span>
+
+      <input
+        name="daftarUrl"
+        value="<%= settings.daftarUrl %>"
+        placeholder="https://..."
+      >
+
+    </label>
+
+    <label>
+
+      <span>
+        Livechat URL
+      </span>
+
+      <input
+        name="livechatUrl"
+        value="<%= settings.livechatUrl %>"
+        placeholder="https://..."
+      >
+
+    </label>
+
+  </div>
+
+  <label>
+
+    <span>
+      Whatsapp URL
+    </span>
+
+    <input
+      name="whatsappUrl"
+      value="<%= settings.whatsappUrl %>"
+      placeholder="https://wa.me/"
+    >
+
+  </label>
+
+  <label>
+
+    <span>
+      Running Text / Ticker
+    </span>
+
+    <input
+      name="tickerText"
+      value="<%= settings.tickerText %>"
+      placeholder="Teks berjalan website"
+    >
+
+  </label>
+
+  <label>
+
+    <span>
+      Footer Text
+    </span>
+
+    <textarea
+      name="footerText"
+      placeholder="Text footer website"
+    ><%= settings.footerText %></textarea>
+
+  </label>
+
+  <button type="submit">
+
+    Simpan Pengaturan
+
+  </button>
+
+</form>
