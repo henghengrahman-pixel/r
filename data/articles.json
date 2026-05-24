@@ -1,36 +1,38 @@
 [
   {
     "id": "art-001",
-    "title": "Panduan Menggunakan Portal OMTOGEL Dengan Lebih Mudah",
-    "slug": "panduan-menggunakan-portal-omtogel",
+    "title": "Panduan Akses Portal dan Fitur Pencarian Terbaru",
+    "slug": "panduan-akses-portal-dan-fitur-pencarian-terbaru",
     "category": "Panduan",
     "author": "Redaksi",
-    "excerpt": "Ringkasan fitur utama portal, mulai dari pencarian cepat, berita bola, update aplikasi, hingga halaman bantuan.",
-    "content": "<p>Portal ini dibuat untuk membantu pengguna menemukan informasi brand, update aplikasi, berita bola, dan halaman penting secara cepat.</p><p>Gunakan kolom pencarian untuk menemukan panduan, jadwal, artikel, atau informasi aplikasi yang tersedia.</p>",
+    "excerpt": "Pelajari berbagai fitur portal mulai dari pencarian cepat, update informasi terbaru, akses halaman populer, hingga navigasi mobile yang lebih ringan dan responsif.",
+    "content": "<p>Portal ini dirancang untuk memberikan pengalaman akses yang lebih cepat, ringan, dan nyaman di berbagai perangkat. Pengguna dapat menemukan informasi terbaru, halaman populer, update aplikasi, serta berbagai artikel pilihan melalui sistem pencarian yang lebih praktis.</p><p>Gunakan fitur pencarian untuk menemukan halaman, informasi, atau update terbaru dengan lebih mudah. Tampilan portal juga telah dioptimalkan agar tetap responsif dan nyaman digunakan di perangkat mobile maupun desktop.</p><p>Selain itu, pengguna dapat mengakses berbagai halaman populer, berita terbaru, dan update informasi harian melalui navigasi yang telah disusun lebih rapi dan modern.</p>",
     "coverUrl": "/images/default-cover.svg",
     "publishedAt": "2026-05-24T00:00:00.000Z",
     "status": "published",
     "tags": [
-      "omtogel",
-      "portal",
-      "panduan"
+      "portal terbaru",
+      "pencarian cepat",
+      "update informasi",
+      "akses mobile"
     ]
   },
   {
     "id": "art-002",
-    "title": "Update Jadwal Bola dan Prediksi Pertandingan Pilihan",
-    "slug": "update-jadwal-bola-dan-prediksi-pertandingan-pilihan",
+    "title": "Update Jadwal Bola dan Informasi Pertandingan Hari Ini",
+    "slug": "update-jadwal-bola-dan-informasi-pertandingan-hari-ini",
     "category": "Berita Bola",
     "author": "Redaksi Bola",
-    "excerpt": "Pantau jadwal pertandingan, ringkasan performa tim, dan catatan prediksi yang disusun dengan tampilan ringkas.",
-    "content": "<p>Halaman berita bola menampilkan ringkasan pertandingan pilihan, jadwal penting, dan update informasi sepak bola yang mudah dibaca di perangkat mobile.</p>",
+    "excerpt": "Ikuti berbagai jadwal pertandingan, kabar terbaru sepak bola, dan informasi pilihan yang disajikan lebih ringkas, cepat diakses, dan nyaman dibaca di semua perangkat.",
+    "content": "<p>Halaman berita bola menghadirkan berbagai informasi pertandingan, jadwal terbaru, statistik tim, hingga kabar sepak bola populer yang diperbarui secara berkala.</p><p>Pengguna dapat mengikuti update pertandingan pilihan, informasi klub, dan berbagai artikel olahraga lainnya melalui tampilan yang lebih modern dan mobile friendly.</p><p>Seluruh halaman telah dioptimalkan agar lebih cepat diakses dan nyaman digunakan baik melalui perangkat mobile maupun desktop.</p>",
     "coverUrl": "/images/default-cover.svg",
     "publishedAt": "2026-05-24T00:00:00.000Z",
     "status": "published",
     "tags": [
-      "berita bola",
       "jadwal bola",
-      "prediksi"
+      "berita pertandingan",
+      "update olahraga",
+      "informasi bola terbaru"
     ]
   }
 ]
