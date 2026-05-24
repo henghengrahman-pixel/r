@@ -1,1 +1,13 @@
-document.addEventListener('DOMContentLoaded',()=>{document.querySelectorAll('a[href="#"]').forEach(a=>a.addEventListener('click',e=>e.preventDefault()))});
+document.addEventListener('DOMContentLoaded', () => {
+
+  document
+    .querySelectorAll('a[href="#"]')
+    .forEach(link => {
+
+      link.addEventListener('click', e => {
+        e.preventDefault();
+      });
+
+    });
+
+});
