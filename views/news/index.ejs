@@ -1,0 +1,6 @@
+<section class="page-title"><span>BERITA BOLA OMTOGEL</span><h1>Berita Bola, Jadwal, Prediksi, dan Update Terbaru</h1><p>Artikel sepak bola terbaru dengan tampilan bersih, cepat, responsif, dan siap masuk sitemap otomatis.</p></section>
+<section class="grid cards wide">
+  <% articles.forEach(a=>{ %>
+    <article class="card row-card"><a class="thumb" href="/berita/<%= a.slug %>"><img src="<%= a.coverUrl || '/images/default-cover.svg' %>" alt="<%= a.title %>" loading="lazy" width="640" height="360" onerror="this.src='/images/default-cover.svg'"></a><div class="card-body"><span class="cat"><%= a.category || 'Berita Bola' %></span><h2><a href="/berita/<%= a.slug %>"><%= a.title %></a></h2><p><%= a.excerpt || '' %></p><div class="card-meta"><span><%= a.author || 'Redaksi' %></span><a href="/berita/<%= a.slug %>">Baca Selengkapnya →</a></div></div></article>
+  <% }) %>
+</section>

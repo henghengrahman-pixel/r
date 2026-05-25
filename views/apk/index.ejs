@@ -1,0 +1,67 @@
+<section class="page-title">
+
+  <span>UPDATE APLIKASI</span>
+
+  <h1>
+    Download Aplikasi Versi Terbaru dan Lebih Stabil
+  </h1>
+
+  <p>
+    Nikmati pengalaman akses yang lebih cepat, ringan, dan responsif melalui versi aplikasi terbaru dengan pembaruan performa, peningkatan tampilan, dan optimasi sistem untuk perangkat mobile.
+  </p>
+
+</section>
+
+<section class="apk-card">
+
+  <div>
+
+    <span>
+      Versi Terbaru
+    </span>
+
+    <h2>
+      <%= apk.version %>
+    </h2>
+
+    <p>
+      Pembaruan terakhir:
+      <%= new Date(apk.updatedAt).toLocaleDateString('id-ID') %>
+    </p>
+
+  </div>
+
+  <a
+    class="btn red"
+    href="<%= apk.androidUrl %>"
+  >
+    Download Android
+  </a>
+
+</section>
+
+<section class="section narrow">
+
+  <div class="section-head">
+
+    <span>PEMBARUAN</span>
+
+    <h2>
+      Catatan Update Terbaru
+    </h2>
+
+  </div>
+
+  <ul class="clean-list">
+
+    <% (apk.changelog||[]).forEach(c=>{ %>
+
+      <li>
+        <%= c %>
+      </li>
+
+    <% }) %>
+
+  </ul>
+
+</section>

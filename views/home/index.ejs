@@ -1,0 +1,33 @@
+<section class="hero">
+  <div class="hero-copy">
+    <div class="hero-top"><span class="badge">PORTAL RESMI OMTOGEL</span><span class="hero-live"><i></i> LIVE UPDATE</span></div>
+    <h1><%= settings.heroTitle || 'OMTOGEL Resmi: Berita Bola, Livescore, dan Prediksi Pertandingan' %></h1>
+    <p class="hero-desc"><%= settings.heroSubtitle || 'OMTOGEL menghadirkan akses informasi modern untuk login, daftar, link alternatif, berita bola, live score realtime, prediksi pertandingan, jadwal bola malam ini, dan update sepak bola terbaru dalam tampilan premium yang cepat dibuka.' %></p>
+    <form class="searchbox" action="/search" method="get"><input type="search" name="q" placeholder="Cari omtogel, login, livescore, prediksi bola..." autocomplete="off"><button type="submit">Cari</button></form>
+    <div class="quick"><a class="gold" href="<%= settings.daftarUrl || '#' %>">Daftar OMTOGEL</a><a href="<%= settings.loginUrl || '#' %>">Login OMTOGEL</a><a href="/search/link-alternatif-omtogel">Link Alternatif</a><a href="/berita">Berita Bola</a></div>
+  </div>
+  <aside class="hero-card">
+    <span class="eyebrow">AKSES CEPAT</span><h2>Portal Bola dan Akses OMTOGEL</h2><p>Menu utama dirancang ringkas agar pengguna mobile dapat menemukan login, daftar, livescore, berita bola, dan prediksi pertandingan tanpa halaman berat.</p>
+    <div class="stat-list"><div><b>SEO</b><span>Meta, sitemap, schema</span></div><div><b>Mobile</b><span>Layout cepat dan stabil</span></div><div><b>Update</b><span>Artikel dan search data admin</span></div></div>
+  </aside>
+</section>
+<section class="section strip">
+  <a href="/search/omtogel">omtogel</a><a href="/search/login-omtogel">login omtogel</a><a href="/search/link-alternatif-omtogel">link alternatif omtogel</a><a href="/search/prediksi-bola-omtogel">prediksi bola omtogel</a><a href="/search/livescore-omtogel">livescore omtogel</a>
+</section>
+<section class="section feature-grid">
+  <article><span>01</span><h2>Live Score Modern</h2><p>Pusat pencarian livescore OMTOGEL untuk memudahkan pengguna menemukan update skor, jadwal bola, dan hasil pertandingan.</p></article>
+  <article><span>02</span><h2>Prediksi Pertandingan</h2><p>Konten prediksi bola OMTOGEL disusun natural, tidak spam, dan mudah dibaca melalui struktur heading yang jelas.</p></article>
+  <article><span>03</span><h2>Berita Bola Terbaru</h2><p>Portal berita mobile friendly dengan internal link, related article, breadcrumb, dan schema NewsArticle.</p></article>
+</section>
+<section class="section">
+  <div class="section-head"><div><span>UPDATE TERBARU</span><h2>Berita Bola dan Informasi OMTOGEL</h2><p>Artikel terbaru yang siap terhubung ke sitemap otomatis dan feed.</p></div><a class="view-all" href="/berita">Lihat Semua</a></div>
+  <div class="grid cards">
+    <% articles.forEach(a => { %>
+      <article class="card"><a class="thumb" href="/berita/<%= a.slug %>"><img src="<%= a.coverUrl || '/images/default-cover.svg' %>" alt="<%= a.title %>" loading="lazy" width="640" height="360" onerror="this.src='/images/default-cover.svg'"></a><div class="card-body"><span class="cat"><%= a.category || 'Berita Bola' %></span><h3><a href="/berita/<%= a.slug %>"><%= a.title %></a></h3><p><%= a.excerpt || '' %></p><div class="card-meta"><span><%= a.author || 'Redaksi' %></span><a href="/berita/<%= a.slug %>">Baca →</a></div></div></article>
+    <% }) %>
+  </div>
+</section>
+<section class="section two-col">
+  <div class="seo-panel"><span class="eyebrow">SEO NATURAL</span><h2>OMTOGEL Resmi, Link Alternatif, dan Portal Bola</h2><p>Halaman ini menargetkan keyword utama seperti omtogel, link alternatif omtogel, login omtogel, situs omtogel, omtogel resmi, prediksi bola omtogel, livescore omtogel, berita bola omtogel, bandar bola omtogel, omtogel terpercaya, daftar omtogel, dan togel online omtogel secara natural melalui struktur konten yang rapi.</p></div>
+  <div class="seo-panel"><span class="eyebrow">TRENDING</span><h2>Pencarian Populer</h2><div class="chips"><% trending.forEach(t => { %><a href="/search/<%= encodeURIComponent(String(t).toLowerCase().replace(/\s+/g,'-')) %>"><%= t %></a><% }) %></div></div>
+</section>

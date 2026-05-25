@@ -1,0 +1,17 @@
+<header class="top">
+  <div class="ticker"><span><%= settings.tickerText || 'OMTOGEL portal berita bola, live score, prediksi pertandingan, dan update akses terbaru.' %></span></div>
+  <nav class="nav" aria-label="Navigasi utama">
+    <a class="brand" href="/" aria-label="<%= settings.siteName || 'OMTOGEL' %>">
+      <img src="<%= settings.logoUrl || '/images/logo.svg' %>" alt="Logo <%= settings.siteName || 'OMTOGEL' %>" width="46" height="46" loading="eager" onerror="this.src='/images/logo.svg'">
+      <strong><%= settings.siteName || 'OMTOGEL' %></strong>
+    </a>
+    <button class="menu-toggle" type="button" aria-label="Buka menu">☰</button>
+    <div class="navlinks">
+      <a href="/">Home</a>
+      <a href="/berita">Berita Bola</a>
+      <a href="/search/livescore-omtogel">Livescore</a>
+      <a href="/search/prediksi-bola-omtogel">Prediksi Bola</a>
+      <a class="nav-cta" href="<%= settings.loginUrl || '#' %>">Login</a>
+    </div>
+  </nav>
+</header>
