@@ -1,5 +1,25 @@
 <article class="article">
 
+  <nav class="breadcrumb">
+
+    <a href="/">
+      Home
+    </a>
+
+    <span>›</span>
+
+    <a href="/berita">
+      Berita Bola
+    </a>
+
+    <span>›</span>
+
+    <strong>
+      <%= article.title %>
+    </strong>
+
+  </nav>
+
   <span class="cat">
     <%= article.category %>
   </span>
@@ -11,7 +31,7 @@
   <div class="meta">
 
     <span>
-      Oleh <%= article.author %>
+      Oleh <%= article.author || 'OMTOGEL' %>
     </span>
 
     <span>•</span>
@@ -39,12 +59,53 @@
   <div class="content">
 
     <p class="lead">
-      Ikuti informasi terbaru seputar pertandingan, jadwal, transfer pemain, statistik, dan berbagai update olahraga pilihan yang disajikan lebih ringkas, nyaman dibaca, dan mudah diakses kapan saja.
+
+      OMTOGEL menghadirkan berita bola terbaru, live score realtime,
+      prediksi pertandingan, jadwal bola malam ini, rumor transfer pemain,
+      dan berbagai update olahraga dunia dengan tampilan modern yang ringan
+      dan nyaman diakses melalui perangkat mobile.
+
     </p>
 
     <%- article.content %>
 
   </div>
+
+  <section class="internal-links">
+
+    <h3>
+      Portal Terkait
+    </h3>
+
+    <div class="chips">
+
+      <a href="/">
+        OMTOGEL
+      </a>
+
+      <a href="/p/omtogel">
+        Portal OMTOGEL
+      </a>
+
+      <a href="/search/live-score">
+        Live Score
+      </a>
+
+      <a href="/search/prediksi-bola">
+        Prediksi Bola
+      </a>
+
+      <a href="/search/jadwal-bola">
+        Jadwal Bola
+      </a>
+
+      <a href="/search/berita-bola">
+        Berita Bola
+      </a>
+
+    </div>
+
+  </section>
 
 </article>
 
@@ -52,28 +113,131 @@
 
   <div class="section-head">
 
-    <span>REKOMENDASI</span>
+    <div>
 
-    <h2>
-      Artikel dan Update Terkait
-    </h2>
+      <span>
+        REKOMENDASI
+      </span>
+
+      <h2>
+        Artikel dan Update Terkait
+      </h2>
+
+    </div>
+
+    <a
+      class="view-all"
+      href="/berita"
+    >
+      Semua Berita
+    </a>
 
   </div>
 
-  <div class="related">
+  <div class="grid cards related-grid">
 
-    <% related.forEach(r=>{ %>
+    <% related.forEach(r => { %>
 
-      <a href="/berita/<%= r.slug %>">
+      <article class="card related-card">
 
-        <span>
-          <%= r.title %>
-        </span>
+        <a
+          class="thumb"
+          href="/berita/<%= r.slug %>"
+        >
 
-      </a>
+          <img
+            src="<%= r.coverUrl %>"
+            alt="<%= r.title %>"
+            loading="lazy"
+          >
+
+        </a>
+
+        <div class="card-body">
+
+          <span class="cat">
+            <%= r.category %>
+          </span>
+
+          <h3>
+
+            <a href="/berita/<%= r.slug %>">
+              <%= r.title %>
+            </a>
+
+          </h3>
+
+          <p>
+            <%= r.excerpt || '' %>
+          </p>
+
+          <div class="card-meta">
+
+            <span>
+              OMTOGEL
+            </span>
+
+            <a href="/berita/<%= r.slug %>">
+              Baca →
+            </a>
+
+          </div>
+
+        </div>
+
+      </article>
 
     <% }) %>
 
   </div>
 
 </section>
+
+<section class="seo-bottom">
+
+  <div class="seo-bottom-content">
+
+    <h2>
+      OMTOGEL Berita Bola dan Live Score Realtime
+    </h2>
+
+    <p>
+
+      Ikuti update berita bola terbaru, jadwal pertandingan malam ini,
+      live score realtime, prediksi pertandingan, transfer pemain,
+      dan berbagai informasi sepak bola dunia hanya melalui portal resmi OMTOGEL.
+
+    </p>
+
+  </div>
+
+</section>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"NewsArticle",
+  "headline":"<%= article.title %>",
+  "image":[
+    "<%= article.coverUrl %>"
+  ],
+  "datePublished":"<%= article.publishedAt %>",
+  "dateModified":"<%= article.updatedAt || article.publishedAt %>",
+  "author":{
+    "@type":"Person",
+    "name":"<%= article.author || 'OMTOGEL' %>"
+  },
+  "publisher":{
+    "@type":"Organization",
+    "name":"OMTOGEL",
+    "logo":{
+      "@type":"ImageObject",
+      "url":"<%= settings.logoUrl %>"
+    }
+  },
+  "mainEntityOfPage":{
+    "@type":"WebPage",
+    "@id":"<%= baseUrl %>/berita/<%= article.slug %>"
+  }
+}
+</script>
