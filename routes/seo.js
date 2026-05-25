@@ -3,8 +3,17 @@ const express = require('express');
 const router = express.Router();
 
 const {
-  getArticles
-} = require('../helpers/articles');
+  readJson
+} = require('../helpers/json-db');
+
+function getArticles() {
+
+  return readJson(
+    'articles.json',
+    []
+  );
+
+}
 
 router.get(
   '/robots.txt',
@@ -37,106 +46,67 @@ router.get(
     const urls = articles.map(
       article => `
 <url>
+
   <loc>
     ${res.locals.baseUrl}/berita/${article.slug}
   </loc>
+
   <lastmod>
     ${new Date(
       article.updatedAt ||
-      article.createdAt ||
+      article.publishedAt ||
       Date.now()
     ).toISOString()}
   </lastmod>
-  <changefreq>daily</changefreq>
-  <priority>0.9</priority>
+
+  <changefreq>
+    daily
+  </changefreq>
+
+  <priority>
+    0.9
+  </priority>
+
 </url>`
     ).join('');
 
     res.send(
 `<?xml version="1.0" encoding="UTF-8"?>
+
 <urlset
 xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
-  <loc>${res.locals.baseUrl}</loc>
-  <changefreq>hourly</changefreq>
-  <priority>1.0</priority>
-</url>
 
-<url>
-  <loc>${res.locals.baseUrl}/berita</loc>
-  <changefreq>hourly</changefreq>
-  <priority>0.9</priority>
-</url>
-
-<url>
-  <loc>${res.locals.baseUrl}/p/omtogel</loc>
-  <changefreq>weekly</changefreq>
-  <priority>1.0</priority>
-</url>
-
-${urls}
-
-</urlset>`
-    );
-
-  }
-);
-
-router.get(
-  '/news-sitemap.xml',
-  (req, res) => {
-
-    const articles =
-      getArticles().slice(0, 100);
-
-    res.header(
-      'Content-Type',
-      'application/xml'
-    );
-
-    const urls = articles.map(
-      article => `
-<url>
   <loc>
-    ${res.locals.baseUrl}/berita/${article.slug}
+    ${res.locals.baseUrl}
   </loc>
 
-  <news:news>
-    <news:publication>
-      <news:name>
-        OMTOGEL
-      </news:name>
+  <changefreq>
+    hourly
+  </changefreq>
 
-      <news:language>
-        id
-      </news:language>
-    </news:publication>
+  <priority>
+    1.0
+  </priority>
 
-    <news:publication_date>
-      ${new Date(
-        article.createdAt ||
-        Date.now()
-      ).toISOString()}
-    </news:publication_date>
+</url>
 
-    <news:title>
-      <![CDATA[
-        ${article.title}
-      ]]>
-    </news:title>
+<url>
 
-  </news:news>
+  <loc>
+    ${res.locals.baseUrl}/berita
+  </loc>
 
-</url>`
-    ).join('');
+  <changefreq>
+    hourly
+  </changefreq>
 
-    res.send(
-`<?xml version="1.0" encoding="UTF-8"?>
+  <priority>
+    0.9
+  </priority>
 
-<urlset
-xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
+</url>
 
 ${urls}
 
@@ -180,7 +150,7 @@ ${article.excerpt || ''}
 
 <pubDate>
 ${new Date(
-  article.createdAt ||
+  article.publishedAt ||
   Date.now()
 ).toUTCString()}
 </pubDate>
@@ -189,7 +159,7 @@ ${new Date(
     ).join('');
 
     res.send(
-`<?xml version="1.0" encoding="UTF-8" ?>
+`<?xml version="1.0" encoding="UTF-8"?>
 
 <rss version="2.0">
 
