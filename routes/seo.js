@@ -1,23 +1,220 @@
 const express = require('express');
+
 const router = express.Router();
-const { readJson } = require('../helpers/json-db');
-const { allIndex } = require('../helpers/search-engine');
-const { absoluteUrl, pageMeta } = require('../helpers/seo');
-router.get('/robots.txt', (req,res)=>{
-  res.type('text/plain').send(`User-agent: *\nAllow: /\nSitemap: ${absoluteUrl(res.locals.baseUrl,'/sitemap.xml')}\n`);
-});
-router.get('/sitemap.xml', (req,res)=>{
-  const articles=readJson('articles.json', []).filter(a=>a.status==='published').map(a=>'/berita/'+a.slug);
-  const pages=readJson('pages.json', []).map(p=>'/p/'+p.slug);
-  const trending=readJson('trending.json', []).map(k=>'/search/'+encodeURIComponent(k.toLowerCase().replace(/\s+/g,'-')));
-  const urls=['/','/search','/berita','/apk',...articles,...pages,...trending];
-  res.type('application/xml').send(`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${urls.map(u=>`\n<url><loc>${absoluteUrl(res.locals.baseUrl,u)}</loc><changefreq>daily</changefreq><priority>${u==='/'?'1.0':'0.8'}</priority></url>`).join('')}\n</urlset>`);
-});
-router.get('/feed.json', (req,res)=>res.json(allIndex()));
-router.get('/p/:slug', (req,res,next)=>{
-  const page=readJson('pages.json', []).find(p=>p.slug===req.params.slug);
-  if(!page) return next();
-  const meta=pageMeta({ title:page.title, description:page.description, canonical:'/p/'+page.slug }, res);
-  res.render('page', { ...meta, page });
-});
-module.exports=router;
+
+const {
+  getArticles
+} = require('../helpers/articles');
+
+router.get(
+  '/robots.txt',
+  (req, res) => {
+
+    res.type('text/plain');
+
+    res.send(
+`User-agent: *
+Allow: /
+
+Sitemap: ${res.locals.baseUrl}/sitemap.xml`
+    );
+
+  }
+);
+
+router.get(
+  '/sitemap.xml',
+  (req, res) => {
+
+    const articles =
+      getArticles();
+
+    res.header(
+      'Content-Type',
+      'application/xml'
+    );
+
+    const urls = articles.map(
+      article => `
+<url>
+  <loc>
+    ${res.locals.baseUrl}/berita/${article.slug}
+  </loc>
+  <lastmod>
+    ${new Date(
+      article.updatedAt ||
+      article.createdAt ||
+      Date.now()
+    ).toISOString()}
+  </lastmod>
+  <changefreq>daily</changefreq>
+  <priority>0.9</priority>
+</url>`
+    ).join('');
+
+    res.send(
+`<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+<url>
+  <loc>${res.locals.baseUrl}</loc>
+  <changefreq>hourly</changefreq>
+  <priority>1.0</priority>
+</url>
+
+<url>
+  <loc>${res.locals.baseUrl}/berita</loc>
+  <changefreq>hourly</changefreq>
+  <priority>0.9</priority>
+</url>
+
+<url>
+  <loc>${res.locals.baseUrl}/p/omtogel</loc>
+  <changefreq>weekly</changefreq>
+  <priority>1.0</priority>
+</url>
+
+${urls}
+
+</urlset>`
+    );
+
+  }
+);
+
+router.get(
+  '/news-sitemap.xml',
+  (req, res) => {
+
+    const articles =
+      getArticles().slice(0, 100);
+
+    res.header(
+      'Content-Type',
+      'application/xml'
+    );
+
+    const urls = articles.map(
+      article => `
+<url>
+  <loc>
+    ${res.locals.baseUrl}/berita/${article.slug}
+  </loc>
+
+  <news:news>
+    <news:publication>
+      <news:name>
+        OMTOGEL
+      </news:name>
+
+      <news:language>
+        id
+      </news:language>
+    </news:publication>
+
+    <news:publication_date>
+      ${new Date(
+        article.createdAt ||
+        Date.now()
+      ).toISOString()}
+    </news:publication_date>
+
+    <news:title>
+      <![CDATA[
+        ${article.title}
+      ]]>
+    </news:title>
+
+  </news:news>
+
+</url>`
+    ).join('');
+
+    res.send(
+`<?xml version="1.0" encoding="UTF-8"?>
+
+<urlset
+xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
+
+${urls}
+
+</urlset>`
+    );
+
+  }
+);
+
+router.get(
+  '/rss.xml',
+  (req, res) => {
+
+    const articles =
+      getArticles().slice(0, 20);
+
+    res.header(
+      'Content-Type',
+      'application/xml'
+    );
+
+    const items = articles.map(
+      article => `
+<item>
+
+<title>
+<![CDATA[
+${article.title}
+]]>
+</title>
+
+<link>
+${res.locals.baseUrl}/berita/${article.slug}
+</link>
+
+<description>
+<![CDATA[
+${article.excerpt || ''}
+]]>
+</description>
+
+<pubDate>
+${new Date(
+  article.createdAt ||
+  Date.now()
+).toUTCString()}
+</pubDate>
+
+</item>`
+    ).join('');
+
+    res.send(
+`<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0">
+
+<channel>
+
+<title>
+OMTOGEL
+</title>
+
+<link>
+${res.locals.baseUrl}
+</link>
+
+<description>
+Portal berita bola terbaru
+</description>
+
+${items}
+
+</channel>
+
+</rss>`
+    );
+
+  }
+);
+
+module.exports = router;
