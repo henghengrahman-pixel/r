@@ -1,15 +1,23 @@
 <section class="hero">
 
+  <div class="hero-overlay"></div>
+
   <div class="hero-copy">
 
-    <span class="badge">PORTAL TERBARU</span>
+    <span class="badge">
+      PORTAL RESMI OMTOGEL
+    </span>
 
     <h1>
-      <%= settings.heroTitle %>
+      <%= settings.heroTitle || 'OMTOGEL' %>
     </h1>
 
-    <p>
-      Temukan informasi terbaru, update pertandingan, akses aplikasi, berita pilihan, dan berbagai halaman populer dalam satu portal yang cepat, ringan, dan nyaman digunakan di semua perangkat.
+    <p class="hero-desc">
+
+      OMTOGEL menghadirkan berita bola terbaru, live score realtime,
+      prediksi pertandingan, jadwal bola malam ini, update transfer pemain,
+      hingga informasi portal modern yang cepat, ringan, dan mobile friendly.
+
     </p>
 
     <form
@@ -17,15 +25,18 @@
       action="/search"
       method="get"
     >
+
       <input
+        type="text"
         name="q"
-        placeholder="Cari berita, pertandingan, aplikasi, atau halaman populer..."
+        placeholder="Cari berita bola, live score, jadwal pertandingan..."
         autocomplete="off"
       >
 
-      <button>
+      <button type="submit">
         Cari
       </button>
+
     </form>
 
     <div class="quick">
@@ -49,21 +60,57 @@
         APK
       </a>
 
+      <a href="/p/omtogel">
+        Tentang
+      </a>
+
+    </div>
+
+    <div class="hero-seo">
+
+      <h2>
+        Berita Bola Hari Ini
+      </h2>
+
+      <h2>
+        Live Score Realtime
+      </h2>
+
+      <h2>
+        Prediksi Bola Terbaru
+      </h2>
+
+      <h2>
+        Jadwal Bola Malam Ini
+      </h2>
+
     </div>
 
   </div>
 
   <div class="hero-card">
 
-    <h3>
-      Pencarian Populer
-    </h3>
+    <div class="card-top">
+
+      <span>
+        Trending Search
+      </span>
+
+      <h3>
+        Pencarian Populer
+      </h3>
+
+    </div>
 
     <div class="chips">
 
-      <% trending.forEach(t=>{ %>
+      <% trending.forEach(t => { %>
 
-        <a href="/search/<%= encodeURIComponent(t.toLowerCase().replace(/\s+/g,'-')) %>">
+        <a
+          href="/search/<%= encodeURIComponent(
+            t.toLowerCase().replace(/\s+/g,'-')
+          ) %>"
+        >
           <%= t %>
         </a>
 
@@ -71,49 +118,111 @@
 
     </div>
 
+    <div class="hero-info">
+
+      <div>
+
+        <strong>
+          Live Update
+        </strong>
+
+        <span>
+          Berita bola dan live score realtime
+        </span>
+
+      </div>
+
+      <div>
+
+        <strong>
+          Mobile Friendly
+        </strong>
+
+        <span>
+          Tampilan cepat dan ringan semua perangkat
+        </span>
+
+      </div>
+
+    </div>
+
   </div>
 
 </section>
 
-<section class="section">
+<section class="section latest-section">
 
   <div class="section-head">
 
-    <span>UPDATE TERBARU</span>
+    <div>
 
-    <h2>
-      Informasi dan Artikel Pilihan
-    </h2>
+      <span>
+        UPDATE TERBARU
+      </span>
+
+      <h2>
+        Berita Bola dan Informasi Pilihan
+      </h2>
+
+    </div>
+
+    <a
+      class="view-all"
+      href="/berita"
+    >
+      Lihat Semua
+    </a>
 
   </div>
 
   <div class="grid cards">
 
-    <% articles.forEach(a=>{ %>
+    <% articles.forEach(a => { %>
 
       <article class="card">
 
-        <img
-          src="<%= a.coverUrl %>"
-          alt="<%= a.title %>"
-          loading="lazy"
+        <a
+          class="thumb"
+          href="/berita/<%= a.slug %>"
         >
 
-        <div>
+          <img
+            src="<%= a.coverUrl %>"
+            alt="<%= a.title %>"
+            loading="lazy"
+          >
+
+        </a>
+
+        <div class="card-body">
 
           <span class="cat">
             <%= a.category %>
           </span>
 
           <h3>
+
             <a href="/berita/<%= a.slug %>">
               <%= a.title %>
             </a>
+
           </h3>
 
           <p>
             <%= a.excerpt %>
           </p>
+
+          <div class="card-meta">
+
+            <span>
+              OMTOGEL
+            </span>
+
+            <a href="/berita/<%= a.slug %>">
+              Baca →
+            </a>
+
+          </div>
 
         </div>
 
@@ -127,12 +236,45 @@
 
 <section class="seo-panel">
 
-  <h2>
-    Akses Informasi Lebih Cepat dan Nyaman
-  </h2>
+  <div class="seo-content">
 
-  <p>
-    Jelajahi berbagai informasi terbaru mulai dari berita olahraga, jadwal pertandingan, update aplikasi, hingga halaman populer dengan tampilan modern yang ringan, responsif, dan mudah diakses kapan saja.
-  </p>
+    <span>
+      PORTAL INFORMASI MODERN
+    </span>
+
+    <h2>
+      OMTOGEL Live Score, Berita Bola, dan Prediksi Pertandingan Terbaru
+    </h2>
+
+    <p>
+
+      OMTOGEL menghadirkan berbagai informasi sepak bola terbaru mulai dari
+      live score realtime, berita transfer pemain, jadwal pertandingan malam ini,
+      prediksi skor, hingga update kompetisi dunia dalam satu portal modern
+      yang cepat, ringan, dan nyaman diakses melalui perangkat mobile.
+
+    </p>
+
+    <div class="seo-links">
+
+      <a href="/">
+        OMTOGEL
+      </a>
+
+      <a href="/berita">
+        Berita Bola
+      </a>
+
+      <a href="/p/omtogel">
+        Portal OMTOGEL
+      </a>
+
+      <a href="/search/live-score">
+        Live Score
+      </a>
+
+    </div>
+
+  </div>
 
 </section>
